@@ -1,0 +1,11 @@
+# Node.js
+node_modules/
+
+# Flutter
+pub_eclair/build/
+pub_eclair/.dart_tool/
+pub_eclair/.idea/
+pub_eclair/android/gradle
+
+# Fichiers sensibles
+config/.env
