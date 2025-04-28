@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pub_eclair/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:pub_eclair/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:pub_eclair/common/widgets/layouts/grid_layout.dart';
 import 'package:pub_eclair/common/widgets/products/product_card/product_card_vertical.dart';
 import 'package:pub_eclair/common/widgets/texts/section_heading.dart';
 import 'package:pub_eclair/screens/home/widgets/home_appbar.dart';
@@ -38,8 +39,9 @@ class HomeScreen extends StatelessWidget {
                         // Heading
                         TSectionHeading(
                           title: TTexts.popularCategories,
-                          showActionButton: false,
+                          showActionButton: true,
                           textColor: TColors.textWhite,
+                          onPressed: () {},
                         ),
                         const SizedBox(height: TSizes.spaceBtwItems),
                         // Categories
@@ -57,16 +59,28 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // Promo slider
-                  TPromoSlider(
+                 const TPromoSlider(
                     banners: [
                       TImages.banner,
                       TImages.banner,
                       TImages.banner
                     ],
                   ),
-                  SizedBox(height: TSizes.defaultSpace),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+
+                        TSectionHeading(
+                          title: TTexts.popularProdutcs,
+                          showActionButton: true,
+                          textColor: TColors.textPrimary,
+                          onPressed: () {},
+                        ),
+                        const SizedBox(height: TSizes.spaceBtwItems),
                   // Popular Products
-                  TProductCardVertical()
+                  TGridLayout(
+                    itemCount: 6,
+                    itemBuilder: (_, index) => TProductCardVertical(),
+                  ),
+                  
                 ],
               ),
             ),

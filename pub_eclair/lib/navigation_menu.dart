@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pub_eclair/screens/home/home.dart';
+import 'package:pub_eclair/screens/store/store.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
 
 class NavigationMenu extends StatelessWidget {
@@ -37,7 +38,7 @@ class NavigationController extends GetxController{
 
   final screens = [
     const HomeScreen(),
-    Container(color: Colors.blue,),
+    const StoreScreen(),
     Container(color: Colors.deepPurple,),
     Container(color: Colors.orange,),
   ];

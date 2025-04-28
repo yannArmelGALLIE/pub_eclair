@@ -55,4 +55,13 @@ class TSizes {
   static const double cardRadiusSm = 10.0;
   static const double cardRadiusMd = 12.0;
   static const double cardRadiusLg = 16.0;
+
+  // Image carousel height
+  static const double imageCarouselHeight = 200.0;
+
+  // Loading indicator size
+  static const double loadingIndicatorSize = 36.0;
+
+  // Grid view spacing
+  static const double gridViewSpacing = 16.0;
 }

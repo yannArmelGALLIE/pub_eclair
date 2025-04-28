@@ -34,5 +34,11 @@ class TTexts {
   static const String homeAppbarSubTitle = "GALLIE Koffi Yann-Armel";
   static const String searchInStore = "Rechercher un magazin";
   static const String popularCategories = "Catégories populaires";
+  static const String popularProdutcs = "Produits populaires";
   static const String market = "Boutique";
+  static const String viewAll = "Voir plus";
+
+  // Store
+  static const String store = "Magazin";
+  static const String featuredBrands = "Produits vedettes";
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pub_eclair/utils/constants/sizes.dart';
+import 'package:pub_eclair/utils/constants/text_strings.dart';
 
 class TSectionHeading extends StatelessWidget {
   const TSectionHeading({
@@ -7,7 +9,7 @@ class TSectionHeading extends StatelessWidget {
     this.textColor, 
     this.showActionButton = true, 
     required this.title, 
-    this.buttonTitle = "View all", 
+    this.buttonTitle = TTexts.viewAll, 
     this.onPressed
     });
 
@@ -19,6 +21,7 @@ class TSectionHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,
@@ -31,7 +34,13 @@ class TSectionHeading extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         if (showActionButton)
-          TextButton(onPressed: onPressed, child: Text(buttonTitle)),
+          TextButton(onPressed: onPressed, child: Text(
+            buttonTitle,
+            style: GoogleFonts.poppins(
+              fontSize: TSizes.fontSizeMd,
+              fontWeight: FontWeight.w400
+            ),
+            )),
       ],
     );
   }
