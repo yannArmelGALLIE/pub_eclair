@@ -27,7 +27,7 @@ class TSectionHeading extends StatelessWidget {
           title,
           style: GoogleFonts.poppins(
             color: textColor,
-            fontSize: 20,
+            fontSize: TSizes.fontSizeLg,
             fontWeight: FontWeight.w600
             ),
           maxLines: 1,

@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pub_eclair/utils/constants/colors.dart';
 import 'package:pub_eclair/utils/constants/sizes.dart';
 import 'package:pub_eclair/utils/device/device_utility.dart';
 

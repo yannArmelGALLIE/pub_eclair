@@ -41,4 +41,12 @@ class TTexts {
   // Store
   static const String store = "Magazin";
   static const String featuredBrands = "Produits vedettes";
+  static const String sports = "Sports";
+  static const String electronics = "Electroniques";
+  static const String cosmetics = "Cosmétiques";
+  static const String clothes = "Vêtements";
+  static const String supplies = "Fournitures";
+  static const String hospitals = "Hôpitaux";
+  static const String schools = "Ecoles";
+  static const String institutions = "institutions";
 }

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pub_eclair/common/widgets/texts/t_brand_title_text.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
 import 'package:pub_eclair/utils/constants/enums.dart';
-import 'package:pub_eclair/utils/constants/sizes.dart';
-
 class TBrandTitleWithVerifiedIcon extends StatelessWidget {
   const TBrandTitleWithVerifiedIcon({
     super.key, 
