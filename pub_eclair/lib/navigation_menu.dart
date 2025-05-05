@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pub_eclair/screens/home/home.dart';
 import 'package:pub_eclair/screens/store/store.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
+import 'package:pub_eclair/utils/constants/text_strings.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -21,8 +22,8 @@ class NavigationMenu extends StatelessWidget {
         backgroundColor: TColors.secondary,
         indicatorColor: TColors.secondary.withOpacity(0.1),
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.home, color: TColors.primary,), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.store, color: TColors.primary,), label: 'Magazin'),
+          NavigationDestination(icon: Icon(Icons.home, color: TColors.primary,), label: TTexts.home),
+          NavigationDestination(icon: Icon(Icons.store, color: TColors.primary,), label: TTexts.store),
           NavigationDestination(icon: Icon(Icons.map, color: TColors.primary,), label: 'Carte'),
           NavigationDestination(icon: Icon(Icons.person, color: TColors.primary,), label: 'Profil'),
         ],

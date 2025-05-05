@@ -1,9 +1,9 @@
 const app = require("./app");
-const {checkClient, checkShopkeeper, requireAuth} = require('./middleware/auth.middleware');
+const {checkClient, checkadvertiser, requireAuth} = require('./middleware/auth.middleware');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const clientRoutes = require('./routes/client.routes');
-const shopkeeperRoutes = require('./routes/shopkeeper.routes');
+const advertiserRoutes = require('./routes/advertiser.routes');
 const cors = require('cors');
 require("dotenv").config({path: './config/.env'});
 require('./config/db');
@@ -27,17 +27,17 @@ app.use(cookieParser());
 
 // jwt
 app.get('*', checkClient);
-app.get('*', checkShopkeeper);
+app.get('*', checkadvertiser);
 app.get('/jwtid', requireAuth, (req, res) => {
     res.status(200).send(res.locals.client._id)
 });
 app.get('/jwtid', requireAuth, (req, res) => {
-    res.status(200).send(res.locals.shopkeeper._id)
+    res.status(200).send(res.locals.advertiser._id)
 });
 
 // Routes
 app.use('/api/client', clientRoutes);
-app.use('/api/shopkeeper', shopkeeperRoutes);
+app.use('/api/advertiser', advertiserRoutes);
 
 
 //server

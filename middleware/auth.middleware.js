@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const ClientModel = require('../models/client.models');
-const ShopkeeperModel = require('../models/shopkeeper.models');
+const AdvertiserModel = require('../models/advertiser.models');
 
 module.exports.checkClient = (req, res, next) => {
     const token = req.cookies.jwt
@@ -24,24 +24,24 @@ module.exports.checkClient = (req, res, next) => {
     }
 }
 
-module.exports.checkShopkeeper = (req, res, next) => {
+module.exports.checkAdvertiser = (req, res, next) => {
     const token = req.cookies.jwt
     if (token) {
         jwt.verify(token, process.env.TOKEN_SECRET, async(err, decodedToken) => {
             if (err) {
-                res.locals.shopkeeper = null;
+                res.locals.advertiser = null;
                 res.cookie('jwt', '', {maxAge: 1});
                 next();
             } else {
                 console.log('decoded token' + decodedToken);
-                let shopkeeper = await ShopkeeperModel.findById(decodedToken.id);
-                res.locals.shopkeeper = shopkeeper;
-                console.log(res.locals.shopkeeper);
+                let advertiser = await AdvertiserModel.findById(decodedToken.id);
+                res.locals.advertiser = advertiser;
+                console.log(res.locals.advertiser);
                 next();
             }
         })
     } else {
-        res.locals.shopkeeper = null;
+        res.locals.advertiser = null;
         next();
     }
 }

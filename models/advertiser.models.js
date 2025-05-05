@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { isEmail} = require('validator');
 const bcrypt = require('bcrypt');
 
-const ShopkeeperSchema = new mongoose.Schema(
+const AdvertiserSchema = new mongoose.Schema(
     {
         nameShop : {
             type: String,
@@ -12,7 +12,7 @@ const ShopkeeperSchema = new mongoose.Schema(
             unique: true,
             trim: true
         },
-        nameShopkeeper : {
+        nameAdvertiser : {
             type: String,
             required: true,
             minLength: 3,
@@ -20,7 +20,7 @@ const ShopkeeperSchema = new mongoose.Schema(
             unique: true,
             trim: true
         },
-        surnameShopkeeper : {
+        surnameAdvertiser : {
             type: String,
             required: true,
             minLength: 3,
@@ -36,6 +36,13 @@ const ShopkeeperSchema = new mongoose.Schema(
             unique: true,
             trim: true
         },
+        phoneNumber : {
+            type: Number,
+            required: true,
+            length : 10,
+            unique: true,
+            trim: true
+        },
         password: {
             type: String,
             required: true,
@@ -47,22 +54,22 @@ const ShopkeeperSchema = new mongoose.Schema(
         timestamps: true,
     }
 );
-ShopkeeperSchema.pre("save", async function name(next) {
+AdvertiserSchema.pre("save", async function name(next) {
         const salt = await bcrypt.genSalt();
         this.password = await bcrypt.hash(this.password, salt);
         next();
 })
 
-ShopkeeperSchema.statics.login = async function name(email, password) {
-    const shopkeeper = await this.findOne({ email });
-    if (shopkeeper) {
-        const auth = await bcrypt.compare(password, shopkeeper.password);
+AdvertiserSchema.statics.login = async function name(email, password) {
+    const advertiser = await this.findOne({ email });
+    if (advertiser) {
+        const auth = await bcrypt.compare(password, advertiser.password);
         if (auth) {
-            return shopkeeper;
+            return advertiser;
         }
         throw Error('incorrect password');
     }
     throw Error('incorrect email')
 };
 
-module.exports = mongoose.model('shopkeeper', ShopkeeperSchema);
+module.exports = mongoose.model('advertiser', AdvertiserSchema);

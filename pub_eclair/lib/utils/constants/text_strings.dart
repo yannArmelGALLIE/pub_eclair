@@ -30,6 +30,7 @@ class TTexts {
   static const String privacyPolicy = "Politique et confidentialité"; 
 
   // Home
+  static const String home = "Accueil";
   static const String homeAppbarTitle = "Treichville, ESATIC";
   static const String homeAppbarSubTitle = "GALLIE Koffi Yann-Armel";
   static const String searchInStore = "Rechercher un magazin";
@@ -39,7 +40,7 @@ class TTexts {
   static const String viewAll = "Voir plus";
 
   // Store
-  static const String store = "Magazin";
+  static const String store = "Magasin";
   static const String featuredBrands = "Produits vedettes";
   static const String sports = "Sports";
   static const String electronics = "Electroniques";

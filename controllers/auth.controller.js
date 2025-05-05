@@ -1,5 +1,5 @@
 const ClientModel = require('../models/client.models');
-const ShopkeeperModel = require("../models/shopkeeper.models");
+const AdvertiserModel = require("../models/advertiser.models");
 const jwt = require('jsonwebtoken');
 const { signUpClientErrors, signInErrors } = require('../utils/errors.utils');
 
@@ -46,13 +46,13 @@ module.exports.logoutClient = async (req, res) => {
     res.redirect('/');
 }
 
-//Shopkeepers
-module.exports.signUpShopkeeper = async (req, res) => {
-    const {nameShop, nameShopkeeper, surnameShopkeeper, email, password} = req.body 
+//Advertiser
+module.exports.signUpAdvertiser = async (req, res) => {
+    const {nameShop, nameAdvertiser, surnameAdvertiser, email, password} = req.body 
 
     try {
-        const shopkeeper = await ShopkeeperModel.create({nameShop, nameShopkeeper, surnameShopkeeper, email, password });
-        res.status(201).json({ shopkeeper: shopkeeper._id});
+        const advertiser = await AdvertiserModel.create({nameShop, nameAdvertiser, surnameAdvertiser, email, password });
+        res.status(201).json({ advertiser: advertiser._id});
     }
     catch(err) {
         const errors = signUpErrors(err);
@@ -62,21 +62,21 @@ module.exports.signUpShopkeeper = async (req, res) => {
 
 }
 
-module.exports.signInShopkeeper = async (req, res) => {
+module.exports.signInAdvertiser = async (req, res) => {
     const {nameShop, password} = req.body
 
     try {
-        const shopkeeper = await ShopkeeperModel.login(nameShop,password);
-        const token = createToken(shopkeeper._id);
+        const advertiser = await AdvertiserModel.login(nameShop,password);
+        const token = createToken(advertiser._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge});
-        res.status(200).json({shopkeeper : shopkeeper._id})
+        res.status(200).json({advertiser : advertiser._id})
     } catch (err) {
         const errors = signInErrors(err)
         res.status(200).send({ errors });
     }
 }
 
-module.exports.logoutShopkeeper = async (req, res) => {
+module.exports.logoutAdvertiser = async (req, res) => {
     res.cookie('jwt', '', {maxAge: 1 });
     res.redirect('/');
 }
