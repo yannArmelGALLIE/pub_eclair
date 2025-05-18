@@ -11,7 +11,7 @@ class TTexts {
   // Authentication form text
   static const String firstName = "Prénoms";
   static const String lastName = "Nom";
-  static const String email = "E-mail";
+  static const String email = "Email";
   static const String password = "Mot de passe";
   static const String confirmPassword = "Confirmez votre mot de passe";
   static const String username = "Nom d'utilisateur";
@@ -50,4 +50,18 @@ class TTexts {
   static const String hospitals = "Hôpitaux";
   static const String schools = "Ecoles";
   static const String institutions = "institutions";
+
+  // Settings
+  static const String settings = "Paramètres";
+  static const String account = "Compte";
+  static const String fullName = "GALLIE Koffi Yann-Armel";
+  static const String emailUser = "yann@email.com";
+  static const String accountSettings = "Paramètres du compte";
+  static const String myCart = "Mon panier";
+  static const String notifications = "Notifications";
+  static const String accountPrivacy = "Confidentialité du compte";
+  static const String appSettings = "Paramètres de l'application";
+  static const String geolocation = "Géolocalisation";
+  static const String darkMode = "Mode sombre";
+  static const String logout = "Se Déconnecter";
 }

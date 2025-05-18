@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pub_eclair/features/personalization/screens/settings/settings.dart';
 import 'package:pub_eclair/screens/home/home.dart';
 import 'package:pub_eclair/screens/store/store.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
@@ -25,7 +26,7 @@ class NavigationMenu extends StatelessWidget {
           NavigationDestination(icon: Icon(Icons.home, color: TColors.primary,), label: TTexts.home),
           NavigationDestination(icon: Icon(Icons.store, color: TColors.primary,), label: TTexts.store),
           NavigationDestination(icon: Icon(Icons.map, color: TColors.primary,), label: 'Carte'),
-          NavigationDestination(icon: Icon(Icons.person, color: TColors.primary,), label: 'Profil'),
+          NavigationDestination(icon: Icon(Icons.settings, color: TColors.primary,), label: TTexts.settings),
         ],
       ),
     ),
@@ -41,6 +42,6 @@ class NavigationController extends GetxController{
     const HomeScreen(),
     const StoreScreen(),
     Container(color: Colors.deepPurple,),
-    Container(color: Colors.orange,),
+    const SettingsScreen(),
   ];
 }

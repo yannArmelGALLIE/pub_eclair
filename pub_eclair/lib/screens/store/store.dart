@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pub_eclair/common/widgets/appBar/appBar.dart';
 import 'package:pub_eclair/common/widgets/appBar/tabbar.dart';
-import 'package:pub_eclair/common/widgets/brands/brand_show_case.dart';
-import 'package:pub_eclair/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:pub_eclair/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:pub_eclair/common/widgets/layouts/grid_layout.dart';
 import 'package:pub_eclair/common/widgets/products/product_card/t_brand_card.dart';
 import 'package:pub_eclair/common/widgets/texts/section_heading.dart';
 import 'package:pub_eclair/screens/store/widgets/category_tab.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
-import 'package:pub_eclair/utils/constants/image_strings.dart';
 import 'package:pub_eclair/utils/constants/sizes.dart';
 import 'package:pub_eclair/utils/constants/text_strings.dart';
 
