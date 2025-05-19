@@ -7,14 +7,17 @@ import 'package:pub_eclair/utils/constants/text_strings.dart';
 
 class TUserProfileTile extends StatelessWidget {
   const TUserProfileTile({
-    super.key,
+    super.key, 
+    required this.onPressed,
   });
+
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: TCircularImage(
-        image: TImages.logo,
+        image: TImages.logoUser,
         width: 50,
         height: 50,
         padding: 0,
@@ -28,7 +31,7 @@ class TUserProfileTile extends StatelessWidget {
         style: GoogleFonts.poppins(color: TColors.textWhite, fontWeight: FontWeight.w300)
         ),
       trailing: IconButton(
-        onPressed: () {}, 
+        onPressed: onPressed, 
         icon: Icon(Icons.edit, color: TColors.textWhite)
         ),
     );

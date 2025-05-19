@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pub_eclair/delayed_animation.dart';
-import 'package:pub_eclair/signin_page.dart';
-import 'package:pub_eclair/signup_page.dart';
+import 'package:pub_eclair/features/authentication/screens/signin_page.dart';
+import 'package:pub_eclair/features/authentication/screens/signup_page.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
 import 'package:pub_eclair/utils/constants/image_strings.dart';
 

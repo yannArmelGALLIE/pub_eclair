@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pub_eclair/delayed_animation.dart';
-import 'package:pub_eclair/signup_client_page.dart';
-import 'package:pub_eclair/signup_shopkeeper_page.dart';
+import 'package:pub_eclair/features/authentication/screens/signup_client_page.dart';
+import 'package:pub_eclair/features/authentication/screens/signup_advertiser_page.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
+import 'package:pub_eclair/utils/constants/text_strings.dart';
 
 class SignupPage extends StatelessWidget {
 
@@ -35,9 +36,9 @@ class SignupPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
                     DelayedAnimationClassName(
-                    delay: 1500, 
+                    delay: 500, 
                     child: Text(
-                      "Vous voulez vous inscrire en tant que :",
+                      TTexts.signUpTo,
                       style: GoogleFonts.poppins(
                         color: TColors.primary,
                         fontSize: 25,
@@ -47,7 +48,7 @@ class SignupPage extends StatelessWidget {
                   ),
             SizedBox(height: 125),
               DelayedAnimationClassName(
-                delay: 2500, 
+                delay: 1000, 
                 child: Container(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -60,12 +61,12 @@ class SignupPage extends StatelessWidget {
                       Navigator.push(
                         context, 
                         MaterialPageRoute(
-                          builder: (context) => SignupClientPage(),
+                          builder: (context) => SignupToClientPage(),
                         ),
                           );
                     }, 
                     child: Text(
-                      'CLIENT',
+                      TTexts.client,
                       style:  GoogleFonts.poppins(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -76,7 +77,7 @@ class SignupPage extends StatelessWidget {
               ),
             SizedBox(height: 30),
               DelayedAnimationClassName(
-                delay: 3500, 
+                delay: 1500, 
                 child: Container(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -89,12 +90,12 @@ class SignupPage extends StatelessWidget {
                       Navigator.push(
                         context, 
                         MaterialPageRoute(
-                          builder: (context) => SignupShopkeeperPage(),
+                          builder: (context) => SignupToAdvertiserPage(),
                         ),
                           );
                     }, 
                     child: Text(
-                      'COMMER\u00C7ANT',
+                      TTexts.advertiser,
                       style:  GoogleFonts.poppins(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

@@ -5,7 +5,7 @@ class TTexts {
   static const String skip = "Skip";
   static const String done = "Fait";
   static const String submit = "Soumettre";
-  static const String appName = "Pub'Eclair";
+  static const String appName = "GEOPUB";
   static const String tContinue = "Continue";
 
   // Authentication form text
@@ -15,8 +15,10 @@ class TTexts {
   static const String password = "Mot de passe";
   static const String confirmPassword = "Confirmez votre mot de passe";
   static const String username = "Nom d'utilisateur";
-  static const String phoneNo = "Phone Number";
-  static const String shopName = "Nom du magazin";
+  static const String phoneNumber = "Numéro de téléphone";
+  static const String shopName = "Nom de l'établissement";
+  static const String advertiserLastName = "Nom de l'annonceur";
+  static const String advertiserFirstName = "Prénoms de l'annonceur";
   static const String rememberMe = "Souvenez-vous de moi";
   static const String forgetPassword = "Mot de passe oublié";
   static const String signIn = "Se Connecter";
@@ -40,7 +42,7 @@ class TTexts {
   static const String viewAll = "Voir plus";
 
   // Store
-  static const String store = "Magasin";
+  static const String store = "Etablissement";
   static const String featuredBrands = "Produits vedettes";
   static const String sports = "Sports";
   static const String electronics = "Electroniques";
@@ -54,7 +56,9 @@ class TTexts {
   // Settings
   static const String settings = "Paramètres";
   static const String account = "Compte";
-  static const String fullName = "GALLIE Koffi Yann-Armel";
+  static const String lastNameUser = "GALLIE";
+  static const String firstNameUser = "Koffi Yann-Armel" ;
+  static const String fullName = "$lastNameUser $firstNameUser";
   static const String emailUser = "yann@email.com";
   static const String accountSettings = "Paramètres du compte";
   static const String myCart = "Mon panier";
@@ -64,4 +68,12 @@ class TTexts {
   static const String geolocation = "Géolocalisation";
   static const String darkMode = "Mode sombre";
   static const String logout = "Se Déconnecter";
+  static const String profile = "Profil";
+  static const String changeProfilePicture = "Changer la photo de profil";
+  static const String profileInformations = "Informations du profil";
+  static const String personalInformations = "Informations personnel";
+  static const String userID = "ID de l'utilisateur";
+  static const String userIDValue = "4563";
+  static const String phoneNumberUser = "+255-0710971006";
+  static const String closeAccount = "Supprimer le compte";
 }

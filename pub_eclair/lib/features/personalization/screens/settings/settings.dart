@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pub_eclair/common/widgets/appBar/appBar.dart';
 import 'package:pub_eclair/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:pub_eclair/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:pub_eclair/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:pub_eclair/common/widgets/texts/section_heading.dart';
+import 'package:pub_eclair/features/personalization/screens/profile/profile.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
 import 'package:pub_eclair/utils/constants/sizes.dart';
 import 'package:pub_eclair/utils/constants/text_strings.dart';
@@ -28,7 +30,9 @@ class SettingsScreen extends StatelessWidget {
                       style: GoogleFonts.poppins(color: TColors.textWhite, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  TUserProfileTile(),
+                  TUserProfileTile(onPressed: () {
+                    Get.to(() => const ProfileScreen());
+                  }),
                   const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
-import 'package:pub_eclair/utils/constants/text_strings.dart';
 
 class TSettingsMenuTile extends StatelessWidget {
   const TSettingsMenuTile({
