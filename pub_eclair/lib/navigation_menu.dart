@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pub_eclair/features/personalization/screens/settings/settings.dart';
 import 'package:pub_eclair/screens/home/home.dart';
+import 'package:pub_eclair/screens/map/map.dart';
 import 'package:pub_eclair/screens/store/store.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
 import 'package:pub_eclair/utils/constants/text_strings.dart';
@@ -41,7 +42,7 @@ class NavigationController extends GetxController{
   final screens = [
     const HomeScreen(),
     const StoreScreen(),
-    Container(color: Colors.deepPurple,),
+    const MapScreen(),
     const SettingsScreen(),
   ];
 }

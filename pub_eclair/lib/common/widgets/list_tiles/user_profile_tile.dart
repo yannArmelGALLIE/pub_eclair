@@ -8,9 +8,13 @@ import 'package:pub_eclair/utils/constants/text_strings.dart';
 class TUserProfileTile extends StatelessWidget {
   const TUserProfileTile({
     super.key, 
+    required this.fullName,
+    required this.emailUser,
     required this.onPressed,
   });
 
+  final String fullName;
+  final String emailUser;
   final VoidCallback onPressed;
 
   @override
@@ -23,11 +27,11 @@ class TUserProfileTile extends StatelessWidget {
         padding: 0,
         ),
       title: Text(
-        TTexts.fullName, 
+        fullName, 
         style: GoogleFonts.poppins(color: TColors.textWhite, fontWeight: FontWeight.w600)
         ),
       subtitle: Text(
-        TTexts.emailUser, 
+        emailUser, 
         style: GoogleFonts.poppins(color: TColors.textWhite, fontWeight: FontWeight.w300)
         ),
       trailing: IconButton(

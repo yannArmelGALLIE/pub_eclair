@@ -17,6 +17,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> products = [
+      {"image" : TImages.sweat, "title" : "Sweat", "subtitle" : "ABIDALSHOP", "price" : "5000"},
+      {"image" : TImages.bag, "title" : "Sac à main", "subtitle" : "ABIDALSHOP", "price" : "10 000"},
+      {"image" : TImages.product_1, "title" : "Skincare", "subtitle" : "ABIDALSHOP", "price" : "2000", "sales" : "25%"},
+      {"image" : TImages.product_2, "title" : "Vêtements", "subtitle" : "ABIDALSHOP", "price" : "5000", "sales" : "50%"},
+      {"image" : TImages.product_3, "title" : "Repas", "subtitle" : "Chez Adja", "price" : "3000"},
+    ];
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -77,8 +85,17 @@ class HomeScreen extends StatelessWidget {
                         const SizedBox(height: TSizes.spaceBtwItems),
                   // Popular Products
                   TGridLayout(
-                    itemCount: 6,
-                    itemBuilder: (_, index) => TProductCardVertical(),
+                    itemCount: products.length,
+                    itemBuilder: (_, index) {
+                      final product = products[index];
+                    return TProductCardVertical(
+                      image: product["image"]!, 
+                      title: product["title"]!, 
+                      subtitle: product["subtitle"]!, 
+                      price: product["price"]!,
+                      sales: product["sales"],
+                      );
+                      },
                   ),
                   
                 ],

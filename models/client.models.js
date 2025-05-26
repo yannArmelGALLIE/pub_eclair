@@ -1,23 +1,21 @@
 const mongoose = require('mongoose');
-const { isEmail} = require('validator');
+const { isEmail, trim} = require('validator');
 const bcrypt = require('bcrypt');
 
 const ClientSchema = new mongoose.Schema(
     {
-        name : {
+        lastName : {
             type: String,
             required: true,
             minLength: 3,
             maxLength: 55,
-            unique: true,
             trim: true
         },
-        surname : {
+        firstname : {
             type: String,
             required: true,
             minLength: 3,
             maxLength: 55,
-            unique: true,
             trim: true
         },
         email : {
@@ -28,11 +26,19 @@ const ClientSchema = new mongoose.Schema(
             unique: true,
             trim: true
         },
+        phoneNumber: {
+            type: String,
+            required: true,
+            minLength: 8,
+            maxLength: 20,
+            unique: true,
+            trim: true,
+        },
         password: {
             type: String,
             required: true,
             max: 1024,
-            minLength: 6,
+            minLength: 8,
         }, 
     },
     {
@@ -47,7 +53,7 @@ ClientSchema.pre("save", async function name(next) {
 
 ClientSchema.statics.login = async function name(email, password) {
     const client = await this.findOne({ email });
-    if (user) {
+    if (client) {
         const auth = await bcrypt.compare(password, client.password);
         if (auth) {
             return client;

@@ -25,7 +25,7 @@ class TBrandShowcase extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const TBrandCard(showBorder: false),
+          const TBrandCard(showBorder: false, image: TImages.sweat, title: 'ABIDALSHOP', subtitle: '10 produits',),
     
           Row(children: images.map((image) => brandTopProductImageWidget(image, context)).toList(),
           )

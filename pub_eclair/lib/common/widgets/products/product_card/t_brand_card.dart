@@ -11,9 +11,13 @@ import 'package:pub_eclair/utils/constants/sizes.dart';
 class TBrandCard extends StatelessWidget {
   const TBrandCard({
     super.key,
+    required this.image,
+    required this.title,
+    required this.subtitle,
     this.showBorder = true
   });
 
+  final String image, title, subtitle;
   final bool showBorder;
 
   @override
@@ -30,7 +34,7 @@ class TBrandCard extends StatelessWidget {
             Flexible(
               child: TCircularImage(
                 isNetworkImage: false,
-                image: TImages.logo,
+                image: image,
                 backgroundColor: Colors.transparent,
                 // overlayColor: TColors.light,
               ),
@@ -42,11 +46,11 @@ class TBrandCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   TBrandTitleWithVerifiedIcon(
-                    title: "Produit",
+                    title: title,
                     brandTextSize: TextSizes.large,
                   ),
                   Text(
-                    "256 produits",
+                    subtitle,
                     overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.poppins(
                       fontSize: 10,

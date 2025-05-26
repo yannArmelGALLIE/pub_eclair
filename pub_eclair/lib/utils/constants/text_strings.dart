@@ -35,7 +35,7 @@ class TTexts {
   static const String home = "Accueil";
   static const String homeAppbarTitle = "Treichville, ESATIC";
   static const String homeAppbarSubTitle = "GALLIE Koffi Yann-Armel";
-  static const String searchInStore = "Rechercher un magazin";
+  static const String searchInStore = "Rechercher un établissement";
   static const String popularCategories = "Catégories populaires";
   static const String popularProdutcs = "Produits populaires";
   static const String market = "Boutique";
@@ -43,8 +43,9 @@ class TTexts {
 
   // Store
   static const String store = "Etablissement";
-  static const String featuredBrands = "Produits vedettes";
+  static const String nearbyStores = "Etablissements proches";
   static const String sports = "Sports";
+  static const String food = "Nourritures";
   static const String electronics = "Electroniques";
   static const String cosmetics = "Cosmétiques";
   static const String clothes = "Vêtements";
@@ -52,6 +53,9 @@ class TTexts {
   static const String hospitals = "Hôpitaux";
   static const String schools = "Ecoles";
   static const String institutions = "institutions";
+
+  // Map
+  static const String map = "Carte";
 
   // Settings
   static const String settings = "Paramètres";

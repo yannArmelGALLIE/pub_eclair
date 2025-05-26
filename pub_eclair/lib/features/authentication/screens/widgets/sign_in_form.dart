@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/connect.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pub_eclair/delayed_animation.dart';
+import 'package:pub_eclair/features/authentication/models/sign_in_request_model.dart';
+import 'package:pub_eclair/features/authentication/screens/signin_advertiser_page.dart';
+import 'package:pub_eclair/features/authentication/services/api_service.dart';
 import 'package:pub_eclair/navigation_menu.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
 import 'package:pub_eclair/utils/constants/text_strings.dart';
@@ -20,6 +24,7 @@ class _SignInFormState extends State<SignInForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
+
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 30),
         child: Column(
@@ -84,7 +89,8 @@ class _SignInFormState extends State<SignInForm> {
                     value: _rememberMe,
                     onChanged: (value) {
                       setState(() {
-                        _rememberMe = value ?? false;;
+                        _rememberMe = value ?? false;
+                        ;
                       });
                     },
                   ),
@@ -115,35 +121,80 @@ class _SignInFormState extends State<SignInForm> {
             SizedBox(height: 50),
             DelayedAnimationClassName(
               delay: 2000,
-              child: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: StadiumBorder(),
-                    padding: EdgeInsets.symmetric(vertical: 16),
-                    backgroundColor: TColors.primary,
-                    foregroundColor: Colors.white,
-                  ),
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Connexion réussie")),
-                      );
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => NavigationMenu(),
+              child: Builder(
+                builder: (BuildContext scaffoldContext) {
+                  return SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: StadiumBorder(),
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        backgroundColor: TColors.primary,
+                        foregroundColor: Colors.white,
+                      ),
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate() &&
+                            validateAndSave()) {
+                          SignInRequestModel model = SignInRequestModel(
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                          );
+
+                          bool isLoggedIn = await APIService.login(model);
+
+                          if (isLoggedIn) {
+                            ScaffoldMessenger.of(scaffoldContext).showSnackBar(
+                              const SnackBar(
+                                content: Text("Connexion réussie"),
+                              ),
+                            );
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => NavigationMenu(),
+                              ),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(scaffoldContext).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                  "Email ou mot de passe incorrect",
+                                ),
+                              ),
+                            );
+                          }
+                        }
+                      },
+                      child: Text(
+                        TTexts.signIn,
+                        style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
                         ),
-                      );
-                    }
-                  },
-                  child: Text(
-                    TTexts.signIn,
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
+                      ),
                     ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(height: 50),
+            DelayedAnimationClassName(
+              delay: 1500,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SigninAdvertiserPage(),
+                    ),
+                  );
+                },
+                child: Text(
+                  "Vous êtes un annonceur",
+                  style: GoogleFonts.poppins(
+                    color: TColors.textSecondary,
+                    fontWeight: FontWeight.w300,
                   ),
                 ),
               ),
@@ -152,5 +203,15 @@ class _SignInFormState extends State<SignInForm> {
         ),
       ),
     );
+  }
+
+  bool validateAndSave() {
+    final form = _formKey.currentState;
+    if (form!.validate()) {
+      form.save();
+      return true;
+    } else {
+      return false;
+    }
   }
 }

@@ -37,6 +37,7 @@ with SingleTickerProviderStateMixin {
       });
   }
 
+  @override
   Widget build(BuildContext context) {
     return FadeTransition(
       opacity: _controller,

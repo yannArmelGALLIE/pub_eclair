@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pub_eclair/delayed_animation.dart';
+import 'package:pub_eclair/features/authentication/models/sign_up_client_request_model.dart';
+import 'package:pub_eclair/features/authentication/models/sign_up_client_response_model.dart';
 import 'package:pub_eclair/features/authentication/screens/signin_page.dart';
+import 'package:pub_eclair/features/authentication/services/api_service.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
 import 'package:pub_eclair/utils/constants/text_strings.dart';
 
@@ -261,7 +264,16 @@ class _SignUpToClientFormState extends State<SignUpToClientForm> {
                   onPressed: () {
                     _termsOfUseError = !_termsOfUse;
                     _privacyPolicyError = !_privacyPolicy;
-                    if (_formKey.currentState!.validate()) {
+                    if (_formKey.currentState!.validate() && validateAndSave()) {
+                      SignUpClientRequestModel model = SignUpClientRequestModel(
+                        lastName: _lastNameController.text,
+                        firstname: _firstNameController.text,
+                        email: _emailController.text,
+                        phoneNumber: "+255-${_phoneNumberController.text}",
+                        password: _passwordController.text
+                      );
+                      APIService.register(model);
+                      
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text("Inscription réussie")),
                       );
@@ -272,7 +284,8 @@ class _SignUpToClientFormState extends State<SignUpToClientForm> {
                         ),
                       );
                     }
-                  },
+                  }
+                  ,
                   child: Text(
                     TTexts.signup,
                     style: GoogleFonts.poppins(
@@ -288,5 +301,14 @@ class _SignUpToClientFormState extends State<SignUpToClientForm> {
         ),
       ),
     );
+  }
+   bool validateAndSave() {
+    final form = _formKey.currentState;
+    if (form!.validate()) {
+      form.save();
+      return true;
+    } else {
+      return false;
+    }
   }
 }

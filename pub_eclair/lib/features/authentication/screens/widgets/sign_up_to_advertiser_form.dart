@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pub_eclair/delayed_animation.dart';
-import 'package:pub_eclair/main.dart';
+import 'package:pub_eclair/features/authentication/models/sign_up_advertiser_request_model.dart';
+import 'package:pub_eclair/features/authentication/screens/signin_advertiser_page.dart';
+import 'package:pub_eclair/features/authentication/services/api_advertiser_service.dart';
 import 'package:pub_eclair/utils/constants/colors.dart';
 import 'package:pub_eclair/utils/constants/text_strings.dart';
 
@@ -287,13 +289,21 @@ class _SignUpToAdvertiserFormState extends State<SignUpToAdvertiserForm> {
                   onPressed: () {
                     _termsOfUseError = !_termsOfUse;
                     _privacyPolicyError = !_privacyPolicy;
-                    if (_formKey.currentState!.validate()) {
-                      // ScaffoldMessenger.of(context).showSnackBar(
-                      //   const SnackBar(content: Text("Inscription réussie")),
-                      // );
+                    if (_formKey.currentState!.validate() && validateAndSave()) {
+                      SignUpAdvertiserRequestModel model = SignUpAdvertiserRequestModel(
+                        nameShop: _shopNameController.text, 
+                        advertiserLastName: _lastNameAdvertiserController.text, 
+                        advertiserFirstName: _firstNameAdvertiserController.text, 
+                        email: _emailController.text, 
+                        phoneNumber: "+255-${_phoneNumberController.text}", 
+                        password: _passwordController.text);
+                        APIAdvertiserService.registerAdvertiser(model);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Inscription réussie")),
+                      );
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => MyApp()),
+                        MaterialPageRoute(builder: (context) => SigninAdvertiserPage()),
                       );
                     }
                   },
@@ -312,5 +322,14 @@ class _SignUpToAdvertiserFormState extends State<SignUpToAdvertiserForm> {
         ),
       ),
     );
+  }
+  bool validateAndSave() {
+    final form = _formKey.currentState;
+    if (form!.validate()) {
+      form.save();
+      return true;
+    } else {
+      return false;
+    }
   }
 }

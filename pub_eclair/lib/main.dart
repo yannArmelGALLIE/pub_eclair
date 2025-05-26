@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pub_eclair/features/authentication/screens/signin_advertiser_page.dart';
+import 'package:pub_eclair/features/authentication/screens/signin_page.dart';
+import 'package:pub_eclair/features/authentication/screens/signup_page.dart';
+import 'package:pub_eclair/navigation_menu.dart';
 import 'package:pub_eclair/welcome_page.dart';
 
 void main() {
@@ -16,6 +20,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       home: WelcomePage(),
+      routes: {
+        '/login': (context) => SigninPage(),
+        '/home': (context) => NavigationMenu(),
+        '/register': (context) => SignupPage(),
+        '/loginAdvertiser': (context) => SigninAdvertiserPage(),
+      },
       );
   }
 }

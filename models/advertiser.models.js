@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { isEmail} = require('validator');
+const { isEmail, trim} = require('validator');
 const bcrypt = require('bcrypt');
 
 const AdvertiserSchema = new mongoose.Schema(
@@ -12,7 +12,7 @@ const AdvertiserSchema = new mongoose.Schema(
             unique: true,
             trim: true
         },
-        nameAdvertiser : {
+        advertiserLastName : {
             type: String,
             required: true,
             minLength: 3,
@@ -20,7 +20,7 @@ const AdvertiserSchema = new mongoose.Schema(
             unique: true,
             trim: true
         },
-        surnameAdvertiser : {
+        advertiserFirstName : {
             type: String,
             required: true,
             minLength: 3,
@@ -37,9 +37,10 @@ const AdvertiserSchema = new mongoose.Schema(
             trim: true
         },
         phoneNumber : {
-            type: Number,
+            type: String,
             required: true,
-            length : 10,
+            minLength: 8,
+            maxLength: 20,
             unique: true,
             trim: true
         },
@@ -47,8 +48,12 @@ const AdvertiserSchema = new mongoose.Schema(
             type: String,
             required: true,
             max: 1024,
-            minLength: 6,
-        }, 
+            minLength: 8,
+        },
+        location: {
+            type: String,
+            trim: true,
+        } 
     },
     {
         timestamps: true,

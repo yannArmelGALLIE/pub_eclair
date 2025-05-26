@@ -13,14 +13,15 @@ const createToken = (id) => {
 
 //Client
 module.exports.signUpClient = async (req, res) => {
-    const {name, surname, email, password} = req.body 
+    const {lastName, firstname, email, phoneNumber, password} = req.body 
 
     try {
-        const client = await ClientModel.create({name, surname, email, password });
-        res.status(201).json({ client: client._id});
+        const client = await ClientModel.create({lastName, firstname, email, phoneNumber, password});
+        res.status(201).json({ client: client});
     }
     catch(err) {
-        const errors = signUpErrors(err);
+        console.log(err);
+        const errors = signUpClientErrors(err);
         res.status(200).send({ errors });
     }
 
@@ -34,7 +35,7 @@ module.exports.signInClient = async (req, res) => {
         const client = await ClientModel.login(email,password);
         const token = createToken(client._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge});
-        res.status(200).json({client : client._id})
+        res.status(200).json({client : client, token})
     } catch (err) {
         const errors = signInErrors(err)
         res.status(200).send({ errors });
@@ -46,30 +47,32 @@ module.exports.logoutClient = async (req, res) => {
     res.redirect('/');
 }
 
+
 //Advertiser
 module.exports.signUpAdvertiser = async (req, res) => {
-    const {nameShop, nameAdvertiser, surnameAdvertiser, email, password} = req.body 
+    const {nameShop, advertiserLastName, advertiserFirstName, email, phoneNumber, password, location} = req.body 
 
     try {
-        const advertiser = await AdvertiserModel.create({nameShop, nameAdvertiser, surnameAdvertiser, email, password });
-        res.status(201).json({ advertiser: advertiser._id});
+        const advertiser = await AdvertiserModel.create({nameShop, advertiserLastName, advertiserFirstName, email, phoneNumber, password, location});
+        res.status(201).json({ advertiser: advertiser});
     }
     catch(err) {
-        const errors = signUpErrors(err);
-        res.status(200).send({ errors });
+        console.log(err);
+        // const errors = signUpClientErrors(err);
+        // res.status(200).send({ errors });
     }
 
 
 }
 
 module.exports.signInAdvertiser = async (req, res) => {
-    const {nameShop, password} = req.body
+    const {email, password} = req.body
 
     try {
-        const advertiser = await AdvertiserModel.login(nameShop,password);
+        const advertiser = await AdvertiserModel.login(email,password);
         const token = createToken(advertiser._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge});
-        res.status(200).json({advertiser : advertiser._id})
+        res.status(200).json({advertiser : advertiser, token})
     } catch (err) {
         const errors = signInErrors(err)
         res.status(200).send({ errors });

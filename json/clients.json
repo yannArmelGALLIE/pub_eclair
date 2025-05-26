@@ -1,0 +1,142 @@
+[
+  {
+    "lastName": "DOE",
+    "firstname": "John",
+    "email": "john.doe@gmail.com",
+    "phoneNumber": "+225-0700000001",
+    "password": "$2b$10$exampleHashedPassword2",
+    "createdAt": { "$date": "2025-05-20T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-05-20T10:00:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "SMITH",
+    "firstname": "Alice",
+    "email": "alice.smith@example.com",
+    "phoneNumber": "+225-0700000002",
+    "password": "$2b$10$exampleHashedPassword3",
+    "createdAt": { "$date": "2025-05-21T08:30:00.000Z" },
+    "updatedAt": { "$date": "2025-05-21T08:30:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "BROWN",
+    "firstname": "Michael",
+    "email": "michael.brown@example.com",
+    "phoneNumber": "+225-0700000003",
+    "password": "$2b$10$exampleHashedPassword4",
+    "createdAt": { "$date": "2025-05-22T12:45:00.000Z" },
+    "updatedAt": { "$date": "2025-05-22T12:45:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "WILSON",
+    "firstname": "Emily",
+    "email": "emily.wilson@example.com",
+    "phoneNumber": "+225-0700000004",
+    "password": "$2b$10$exampleHashedPassword5",
+    "createdAt": { "$date": "2025-05-22T14:20:00.000Z" },
+    "updatedAt": { "$date": "2025-05-22T14:20:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "MARTIN",
+    "firstname": "Chris",
+    "email": "chris.martin@example.com",
+    "phoneNumber": "+225-0700000005",
+    "password": "$2b$10$exampleHashedPassword6",
+    "createdAt": { "$date": "2025-05-22T15:00:00.000Z" },
+    "updatedAt": { "$date": "2025-05-22T15:00:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "LEE",
+    "firstname": "Jessica",
+    "email": "jessica.lee@example.com",
+    "phoneNumber": "+225-0700000006",
+    "password": "$2b$10$exampleHashedPassword7",
+    "createdAt": { "$date": "2025-05-22T15:30:00.000Z" },
+    "updatedAt": { "$date": "2025-05-22T15:30:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "THOMAS",
+    "firstname": "David",
+    "email": "david.thomas@example.com",
+    "phoneNumber": "+225-0700000007",
+    "password": "$2b$10$exampleHashedPassword8",
+    "createdAt": { "$date": "2025-05-22T16:00:00.000Z" },
+    "updatedAt": { "$date": "2025-05-22T16:00:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "MOORE",
+    "firstname": "Sarah",
+    "email": "sarah.moore@example.com",
+    "phoneNumber": "+225-0700000008",
+    "password": "$2b$10$exampleHashedPassword9",
+    "createdAt": { "$date": "2025-05-22T16:30:00.000Z" },
+    "updatedAt": { "$date": "2025-05-22T16:30:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "TAYLOR",
+    "firstname": "Robert",
+    "email": "robert.taylor@example.com",
+    "phoneNumber": "+225-0700000009",
+    "password": "$2b$10$exampleHashedPassword10",
+    "createdAt": { "$date": "2025-05-22T17:00:00.000Z" },
+    "updatedAt": { "$date": "2025-05-22T17:00:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "HARRIS",
+    "firstname": "Laura",
+    "email": "laura.harris@example.com",
+    "phoneNumber": "+225-0700000010",
+    "password": "$2b$10$exampleHashedPassword11",
+    "createdAt": { "$date": "2025-05-22T17:30:00.000Z" },
+    "updatedAt": { "$date": "2025-05-22T17:30:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "CLARK",
+    "firstname": "Daniel",
+    "email": "daniel.clark@example.com",
+    "phoneNumber": "+225-0700000011",
+    "password": "$2b$10$exampleHashedPassword12",
+    "createdAt": { "$date": "2025-05-22T18:00:00.000Z" },
+    "updatedAt": { "$date": "2025-05-22T18:00:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "LEWIS",
+    "firstname": "Sophia",
+    "email": "sophia.lewis@example.com",
+    "phoneNumber": "+225-0700000012",
+    "password": "$2b$10$exampleHashedPassword13",
+    "createdAt": { "$date": "2025-05-22T18:30:00.000Z" },
+    "updatedAt": { "$date": "2025-05-22T18:30:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "HALL",
+    "firstname": "James",
+    "email": "james.hall@example.com",
+    "phoneNumber": "+225-0700000013",
+    "password": "$2b$10$exampleHashedPassword14",
+    "createdAt": { "$date": "2025-05-22T19:00:00.000Z" },
+    "updatedAt": { "$date": "2025-05-22T19:00:00.000Z" },
+    "__v": 0
+  },
+  {
+    "lastName": "YOUNG",
+    "firstname": "Grace",
+    "email": "grace.young@example.com",
+    "phoneNumber": "+225-0700000014",
+    "password": "$2b$10$exampleHashedPassword15",
+    "createdAt": { "$date": "2025-05-22T19:30:00.000Z" },
+    "updatedAt": { "$date": "2025-05-22T19:30:00.000Z" },
+    "__v": 0
+  }
+]

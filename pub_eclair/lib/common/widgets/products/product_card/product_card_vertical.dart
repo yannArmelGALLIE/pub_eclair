@@ -12,7 +12,20 @@ import 'package:pub_eclair/utils/constants/image_strings.dart';
 import 'package:pub_eclair/utils/constants/sizes.dart';
 
 class TProductCardVertical extends StatelessWidget {
-  const TProductCardVertical({super.key});
+  const TProductCardVertical({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.subtitle,
+    required this.price,
+    this.sales,
+    });
+
+    final String image;
+    final String title;
+    final String subtitle;
+    final String price;
+    final String? sales;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +48,7 @@ class TProductCardVertical extends StatelessWidget {
               backgroundColor: TColors.light,
               child: Stack(
                 children: [
-                  TRoundedImage(image: TImages.product, applyImageRadius: true),
+                  TRoundedImage(image: image, applyImageRadius: true),
 
                   Positioned(
                     top: 12,
@@ -47,7 +60,7 @@ class TProductCardVertical extends StatelessWidget {
                         vertical: TSizes.xs,
                       ),
                       child: Text(
-                        "25%",
+                        sales ?? "",
                         style: GoogleFonts.poppins(color: TColors.black),
                       ),
                     ),
@@ -69,9 +82,9 @@ class TProductCardVertical extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const TProductTitleText(title: "Produit", smallSize: true),
+                  TProductTitleText(title: title, smallSize: true),
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
-                  TBrandTitleWithVerifiedIcon(title: "Magasin"),
+                  TBrandTitleWithVerifiedIcon(title: subtitle),
                 ],
               ),
             ),
@@ -83,7 +96,7 @@ class TProductCardVertical extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: TSizes.sm),
-                  child: TProductPriceText(price: "10 000", currency: "FCFA",),
+                  child: TProductPriceText(price: price, currency: "FCFA",),
                 ),
                 Container(
                   decoration: const BoxDecoration(

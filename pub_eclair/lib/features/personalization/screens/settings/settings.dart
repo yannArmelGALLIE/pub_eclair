@@ -10,9 +10,37 @@ import 'package:pub_eclair/features/personalization/screens/profile/profile.dart
 import 'package:pub_eclair/utils/constants/colors.dart';
 import 'package:pub_eclair/utils/constants/sizes.dart';
 import 'package:pub_eclair/utils/constants/text_strings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+
+  String fullName = "";
+  String email = ""; 
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserInfo();
+  }
+
+  Future<void> _loadUserInfo() async {
+    final prefs = await SharedPreferences.getInstance();
+    final lastName = prefs.getString("lastName") ?? "";
+    final firstname = prefs.getString("firstname") ?? "";
+    final emailUser = prefs.getString("emailUser") ?? "";
+
+    setState(() {
+      fullName = "$lastName $firstname";
+      email = emailUser;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +58,13 @@ class SettingsScreen extends StatelessWidget {
                       style: GoogleFonts.poppins(color: TColors.textWhite, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  TUserProfileTile(onPressed: () {
+                  TUserProfileTile(
+                    fullName: fullName,
+                    emailUser: email,
+                    onPressed: () {
                     Get.to(() => const ProfileScreen());
-                  }),
+                  }
+                  ),
                   const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),

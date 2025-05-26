@@ -1,5 +1,5 @@
 const app = require("./app");
-const {checkClient, checkadvertiser, requireAuth} = require('./middleware/auth.middleware');
+const {checkClient, checkAdvertiser, requireAuth} = require('./middleware/auth.middleware');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const clientRoutes = require('./routes/client.routes');
@@ -27,7 +27,7 @@ app.use(cookieParser());
 
 // jwt
 app.get('*', checkClient);
-app.get('*', checkadvertiser);
+app.get('*', checkAdvertiser);
 app.get('/jwtid', requireAuth, (req, res) => {
     res.status(200).send(res.locals.client._id)
 });
