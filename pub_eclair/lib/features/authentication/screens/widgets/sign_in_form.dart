@@ -108,7 +108,14 @@ class _SignInFormState extends State<SignInForm> {
             DelayedAnimationClassName(
               delay: 1500,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NavigationMenu(),
+                    ),
+                  );
+                },
                 child: Text(
                   TTexts.forgetPassword,
                   style: GoogleFonts.poppins(
